@@ -1,0 +1,303 @@
+.section-1 {
+    width : 100% ; 
+    height : 108vh ; 
+    background-color: #EBEBEB;
+  
+}
+.section-1 .box { 
+    max-width : 1400px;
+    margin : 0 auto;
+ }
+
+.section-1 .box .dropdown-container {
+    display: none; 
+}
+
+
+.section-1 .box header {
+    background-color: #2468B1;
+    display: flex;
+    justify-content : space-between;
+    height: 16vh;
+    align-items:center;
+    padding: 0px/*Vertical*/  32px/*Horizontal*/;
+}
+
+.section-1 .box header img {
+    width: 20%;
+   
+}
+
+.section-1 .box header nav button {
+    height: 48px;
+    width: 192px;
+    font-weight: bold;
+    border: 0 ;
+    outline: 0;
+    cursor :pointer;
+    color: #EBEBEB;
+}
+
+.section-1 .box header nav button:nth-child(1) {
+    margin-right: 8px;
+}
+
+.section-1 .box main  {
+    display : flex;
+    flex-direction: column;
+    height: 70vh;
+}
+
+.section-1 .box main section:nth-child(1) h2 {
+    font-size : 40px;
+    text-align : center;
+    color : #2468B1;
+    margin-top: 44px;
+    margin-bottom: 44px;
+}
+
+.section-1 .box main section:nth-child(2) {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+}
+
+
+.section-1 .box main section:nth-child(2) .filterContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
+    height: 60vh;
+    background-color: #2468B1;
+    border-radius: 40px;
+    margin-bottom: 44px;
+}
+
+.section-1 .box main section:nth-child(2) .filterContainer .form-group{
+   display: flex;
+   justify-content: space-between;
+   padding:0px 10% ;
+}
+
+.section-1 .box main section:nth-child(2) .filterContainer input{
+    width: 50%;
+}
+.section-1 .box main section:nth-child(2) .filterContainer label{
+    color : #EBEBEB;
+}
+
+.section-1 .box main section:nth-child(2) .filterContainer .filterOne{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30%;
+    height: 100%;
+   
+    border-radius: 40px;
+    padding: 6%  0px ;
+}
+
+.section-1 .box main section:nth-child(2) .filterContainer .filterOne .radioContainer{
+    display: flex;
+    padding:0px 10% ;
+    justify-content: space-between;
+    
+}
+
+.section-1 .box main section:nth-child(2) .filterContainer .filterTwo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30%;
+    height: 100%;
+    
+    border-radius: 40px;
+    
+}
+
+.section-1 .box main section:nth-child(2) .filterContainer .filterTwo .allContainer{
+    display: flex;
+    justify-content: center;
+   
+}
+
+.section-1 .box main section:nth-child(2) .filterContainer .filterTwo .dropdownContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10% 0px;
+    height: 200px;
+   
+}
+
+.section-1 .box main section:nth-child(2) .filterContainer .filterTwo .dropdownContainer .firstCouple{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.section-1 .box main section:nth-child(2) .filterContainer .filterTwo .dropdownContainer .secondCouple{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.section-1 .box main section:nth-child(2) .filterContainer .filterTwo .goContainer{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.section-1 .box main section:nth-child(2) .filterContainer .filterThree{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30%;
+    height: 100%;
+    
+    border-radius: 40px;
+    padding: 6%  0px ;
+}
+
+
+
+.section-2 {
+    width : 100% ; 
+    height : 100vh ; 
+    background-color: #e7afaf;
+  
+}
+.section-2 .box { 
+    max-width : 1400px;
+    margin : 0 auto;
+    height : 100vh ; 
+    display: flex;
+    justify-content: center;
+    
+    
+ }
+
+.section-2 .box .pokemonContainer {
+    display: flex;
+    width: 1200px;
+    flex-wrap: wrap;
+    
+}
+
+.section-2 .box .pokemonCardContainer {
+    height: 380px;
+    width: 48%;
+    margin: 2px 2px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    margin: 25px 0px;
+ }
+
+.section-2 .box .pokemonCardContainer .pokemonCard  {
+    height: 380px;
+    width: 98%;
+    border-radius: 40px;
+    background-color: #2468B1;
+    
+ }
+
+.section-2 .box .pokemonCardContainer .pokemonCard .imgAndInfoContainer {
+    display: flex;
+}
+
+.section-2 .box .pokemonCardContainer .pokemonCard .imgAndInfoContainer .pokemonImgContainer {
+    width: 40%;
+    background-color: #EBEBEB; 
+    border-radius: 40px;
+}
+.section-2 .box .pokemonCardContainer .pokemonCard .imgAndInfoContainer .pokemonInfoContainer{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    width: 60%;
+    
+}
+
+.section-2 .box .pokemonCardContainer .pokemonCard  p{
+    color : #EBEBEB; 
+    font-size: 18px;
+    text-align: center;
+
+}
+
+.section-2 .box .pokemonCardContainer .pokemonCard  .imgAndInfoContainer .pokemonInfoContainer p{
+    width: 50%;
+}
+
+.section-2 .box .pokemonCardContainer .pokemonCard .imgAndInfoContainer .pokemonInfoContainer img{
+    width: 50px;
+}
+
+.section-2 .box .pokemonCardContainer .pokemonCard .moreInfo1 {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 20px;
+    
+}
+
+.section-2 .box .pokemonCardContainer .pokemonCard .moreInfo2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 20px;
+    
+}
+.section-2 .box .pokemonCardContainer .pokemonCard .moreInfo3 {
+    display: flex;
+    justify-content: center;
+    color : red;
+    margin: 5px 20px;
+    
+}
+
+
+
+
+footer {
+    background-color: #2468B1;
+    height: 17vh;
+    display: flex; 
+    align-items: center;
+
+}
+footer .box {
+    max-width : 1264px;
+    margin : 0 auto;
+    padding : 0px 32px;
+    display: flex;
+    width: 100%;
+
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer .box .link {
+    display: flex;
+    width: 100%;
+    padding-bottom: 8px;
+    justify-content: center;
+}
+
+footer .box .link a:nth-child(1){
+    padding-right: 1%;
+}
+footer .box .link a img {
+    height: 6vh;
+}
+
+footer .box .copyright {
+    display: flex;
+    justify-content: center;
+    color : #FEFBEC ;
+    width: 100%;
+    
+}
+
+
+
