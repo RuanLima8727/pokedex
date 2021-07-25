@@ -21,3 +21,5 @@ Pacotes usados no Node.js
 
 Link para Protótipo Figma
 https://www.figma.com/file/ns4uSgoonz0xOgHya5GzeL/Pokedex?node-id=0%3A1
+![image](https://user-images.githubusercontent.com/69440448/126917666-bc98a693-2743-4440-a116-4d59ab9d8d36.png)
+
