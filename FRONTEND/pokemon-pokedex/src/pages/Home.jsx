@@ -14,15 +14,23 @@ import PokemonCardContainer from '../components/pokemonCardContainer/pokemonCard
 function Home (){
     //Funções para consumo da API
     
-    const [all, setAll] = useState([]);
+    const [get, getPokemon] = useState([]);
+    const [fill, getFilteredPokemon] = useState([]);
+    
 
     async function getAll () {
         await api.get('/pokedex/all')
-        .then((response)=>{setAll(response.data)})
+        .then((response)=>{getPokemon(response.data)})
     }
-    console.log(all)
+    console.log(get)
     
     useEffect(()=>{getAll()}, [])
+
+    async function getFiltered (getF) {
+        await api.get(`/pokedex/filter/${getF}`)
+        .then((response)=>{getFilteredPokemon(response.data)})
+        
+    }
 
      return (
         <div>
@@ -88,7 +96,11 @@ function Home (){
                                                 Yes
                                             </label>
                                         </div>
-                                        <button type="submit" className="btn btn-dark">Go</button>
+                                        <button 
+                                            type="button" 
+                                            className="btn btn-dark" 
+                                             
+                                        >Go</button>
                                     </div>
                                 </form>
 
@@ -253,7 +265,7 @@ function Home (){
             <div className="section-2">
                 <div className="box">
                     <div className="pokemonContainer">
-                        {all.map((element)=>{                            
+                        {get.map((element)=>{                            
                             return (
                                 <PokemonCardContainer 
                                 // INFORMAÇÕES DO CARD PRINCIPAL
