@@ -1,15 +1,29 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import './Styles.css'
 
+import api from '../services/api'
+
+// Images
 import pokemonLogo from '../assets/images/pokemonLogo.png'
 import linkedinImage from '../assets/images/linkedin-footer.svg'
 import githubImage from '../assets/images/github-footer.svg'
-import pokemonImg from '../assets/images/001.png'
 
-import grass from '../assets/images/grassType.png'
-import poison from '../assets/images/poisonType.png'
+//Componenents
+import PokemonCardContainer from '../components/pokemonCardContainer/pokemonCardContainer'
 
 function Home (){
+    //Funções para consumo da API
+    
+    const [all, setAll] = useState([]);
+
+    async function getAll () {
+        await api.get('/pokedex/all')
+        .then((response)=>{setAll(response.data)})
+    }
+    console.log(all)
+    
+    useEffect(()=>{getAll()}, [])
+
      return (
         <div>
             <div className="section-1">
@@ -239,56 +253,29 @@ function Home (){
             <div className="section-2">
                 <div className="box">
                     <div className="pokemonContainer">
-                        <div className="pokemonCardContainer">
-                            <div className="pokemonCard">
-                                <div className="imgAndInfoContainer">
-                                    <div className="pokemonImgContainer">
-                                        <img src={pokemonImg} alt="Desenho do pokemon" />
-                                    </div>
-                                    <div className="pokemonInfoContainer">
-                                        <p>Name : Bulbasaur</p>
-                                        <p>Legendary : No</p>
-                                        <p>Type 1 : <img src={grass} alt="grassType" /></p>
-                                        <p>Type 2 : <img src={poison} alt="poisonType" /></p>
-                                    </div>
-                                </div>
-                                <div className="moreInfo1">
-                                    <p>Generation : 1</p>
-                                    <p>Evolution Stage : 1</p>
-                                    <p>STAT Total : 326</p>
-                                </div>
-                                <div className="moreInfo2">
-                                    <p>ATK : 118</p>
-                                    <p>DEF : 118</p>
-                                    <p>STA : 90</p>
-                                </div>
-                                <div className="moreInfo3">
-                                    <p style={{'color':'red'}}>More Info</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="pokemonCardContainer">
-                            <div className="pokemonCard">
-                                
-                            </div>
-                        </div>
-                        
-                        
+                        {all.map((element)=>{                            
+                            return (
+                                <PokemonCardContainer 
+                                // INFORMAÇÕES DO CARD PRINCIPAL
+                                    ImgName={element.ImgName} 
+                                    Name={element.Name}
+                                    Legendary={element.Legendary}
+                                    Type1={element.Type1}
+                                    Type2={element.Type2}
+                                    Generation={element.Generation}
+                                    ATK={element.ATK}
+                                    DEF={element.DEF}
+                                    STA={element.STA}
+                                    EvolutionStage={element.EvolutionStage}
+                                    STATTOTAL={element.STATTOTAL}
+                                //INFORMAÇÕES DO CARD ADICIONAL (A FAZER)
+                                />
+                            )
+
+                        }) }        
                     </div>
-               
-
-
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
             <footer>
             <div className="box" >
                 <div className="link">

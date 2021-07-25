@@ -14,7 +14,7 @@ class Controller {
 
     async all (req, res) {
         await model.find()
-        .sort('PokedexNumber')
+        
         .then((response)=>{return res.status(200).json(response)})
         .catch((error)=>{return res.status(500).json(error)})
     }

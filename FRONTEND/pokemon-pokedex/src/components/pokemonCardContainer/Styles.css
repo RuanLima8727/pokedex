@@ -1,0 +1,76 @@
+.section-2 .box .pokemonCardContainer {
+    height: 380px;
+    width: 48%;
+    margin: 2px 2px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    margin: 25px 0px;
+ }
+
+.section-2 .box .pokemonCardContainer .pokemonCard  {
+    height: 380px;
+    width: 98%;
+    border-radius: 40px;
+    background-color: #2468B1;
+    
+ }
+
+.section-2 .box .pokemonCardContainer .pokemonCard .imgAndInfoContainer {
+    display: flex;
+}
+
+.section-2 .box .pokemonCardContainer .pokemonCard .imgAndInfoContainer .pokemonImgContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    margin: 15px 5px 5px 15px;
+    background-color: #EBEBEB; 
+    border-radius: 40px;
+}
+
+.section-2 .box .pokemonCardContainer .pokemonCard .imgAndInfoContainer .pokemonInfoContainer{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    width: 60%;
+    
+}
+
+.section-2 .box .pokemonCardContainer .pokemonCard  p{
+    color : #EBEBEB; 
+    font-size: 18px;
+    text-align: center;
+
+}
+
+.section-2 .box .pokemonCardContainer .pokemonCard  .imgAndInfoContainer .pokemonInfoContainer p{
+    width: 50%;
+}
+
+.section-2 .box .pokemonCardContainer .pokemonCard .imgAndInfoContainer .pokemonInfoContainer img{
+    width: 50px;
+}
+
+.section-2 .box .pokemonCardContainer .pokemonCard .moreInfo1 {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 20px;
+    
+}
+
+.section-2 .box .pokemonCardContainer .pokemonCard .moreInfo2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 20px;
+    
+}
+.section-2 .box .pokemonCardContainer .pokemonCard .moreInfo3 {
+    display: flex;
+    justify-content: center;
+    color : red;
+    margin: 5px 20px;
+    
+}
