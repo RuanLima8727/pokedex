@@ -19,6 +19,14 @@ Pacotes usados no Node.js <br/>
 4-Axios <br/>
 5-Cors <br/>
 
+Banco de Dados<br/>
+Siga os passos a seguir:<br/>
+1-Crie um banco com o nome de "PokemonGo"<br/>
+2-Crie uma coleção com o nome de "pokemons"<br/>
+3-Dentro da coleção importe o arquivo "pokemonToMongoCurrently.csv"<br/>
+
+Gostaria de citar que algumas outras coisas foram planejadas mas por conta do tempo não foram finalizadas,<br/> existem rotas e protótipos prontos para incrementos futuros na aplicação.<br/>
+
 Link para Protótipo Figma
 https://www.figma.com/file/ns4uSgoonz0xOgHya5GzeL/Pokedex?node-id=0%3A1 <br/> 
 
