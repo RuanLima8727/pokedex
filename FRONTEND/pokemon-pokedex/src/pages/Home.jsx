@@ -9,28 +9,91 @@ import linkedinImage from '../assets/images/linkedin-footer.svg'
 import githubImage from '../assets/images/github-footer.svg'
 
 //Componenents
-import PokemonCardContainer from '../components/pokemonCardContainer/pokemonCardContainer'
+import PokemonCardContainer from '../components/pokemonCardContainer'
+import DropdownItem from '../components/dropdownItem'
+
+
+    //Setando as variaveis aqui para que a recarga do componente não atrapalhe seus valores
+    var keepType2 = ""
+    var keepType1 = "" 
 
 function Home (){
+
+    //Array para criação otimizada dos itens do dropdown
+    var typeDropdown = [
+        "Bug","Dark","Dragon","Electric","Fairy","Fighting","Fire","Flying",
+        "Ghost","Grass","Ground","Ice","Normal","Poison","Psychic","Rock",
+        "Steel","Water"
+    ]
+
     //Funções para consumo da API
     
     const [get, getPokemon] = useState([]);
-    const [fill, getFilteredPokemon] = useState([]);
+    const [settype, setPokemonType] = useState("Choose Type");
+    const [settype2, setPokemonType2] = useState("Choose Type");
     
 
     async function getAll () {
         await api.get('/pokedex/all')
         .then((response)=>{getPokemon(response.data)})
+        
     }
-    console.log(get)
-    
     useEffect(()=>{getAll()}, [])
 
     async function getFiltered (getF) {
         await api.get(`/pokedex/filter/${getF}`)
-        .then((response)=>{getFilteredPokemon(response.data)})
-        
+        .then((response)=>{getPokemon(response.data)})
+        console.log("Filtro chamado")
     }
+
+    function isLegendary (e) {
+        if (e.target.form[0].checked == false) {
+            getFiltered('legendary/1')
+        }
+         else{
+             getFiltered('legendary/0')
+            }
+    }
+
+    
+    function getType (typeFilter, t2) {
+        
+        if (t2 == "2") {
+            keepType2 = typeFilter
+            setPokemonType2(keepType2)
+            console.log(keepType2)
+        }
+        else if (typeFilter != "GO") {
+            keepType1 = typeFilter
+            setPokemonType(keepType1)
+            console.log(keepType1)
+        }
+
+        else if (keepType2 == "none") {
+            console.log(`type/${keepType1}`)
+            getFiltered(`type/${keepType1}`)
+        }
+
+        else {
+            console.log(`type/${keepType1}/${keepType2}`)
+            getFiltered(`type/${keepType1}/${keepType2}`)
+        }
+
+    }
+
+    function getNumber (e) {
+
+        getFiltered(`number/${e.target.form[0].value}`)
+            console.log(e.target.form[0].value)
+        }
+    
+    function getName (e) {
+
+        var uCase = e.target.form[0].value
+        var nameUpperCase = uCase[0].toUpperCase() + uCase.substr(1)
+            getFiltered(`name/${nameUpperCase}`)
+            }
+        
 
      return (
         <div>
@@ -54,14 +117,22 @@ function Home (){
                                     <div className="form-group">
                                         <label for="nameInput">Name</label>
                                         <input type="text" className="form-control" id="nameInput" placeholder="Pokémon Name"/>
-                                        <button type="submit" className="btn btn-dark">Go</button>
+                                        <button 
+                                            type="button" 
+                                            className="btn btn-dark"
+                                            onClick={(e)=>{getName(e)}}
+                                        >Go</button>
                                     </div>
                                 </form>
                                 <form>
                                     <div className="form-group">
                                         <label for="pokeNumberInput">Number</label>
                                         <input type="text" className="form-control" id="pokeNumberInput" placeholder="Pokedex Number"/>
-                                        <button type="submit" className="btn btn-dark">Go</button>
+                                        <button 
+                                            type="button" 
+                                            className="btn btn-dark" 
+                                            onClick={(e)=>{getNumber(e)}}
+                                        >Go</button>
                                     </div>
                                 </form>
                                 <form>
@@ -73,6 +144,7 @@ function Home (){
                                                 type="radio" 
                                                 name="flexRadioDefault" 
                                                 id="flexRadioDefault1"
+                                                checked
                                             />
                                             <label 
                                                 className="form-check-label" 
@@ -86,8 +158,7 @@ function Home (){
                                                 className="form-check-input" 
                                                 type="radio"
                                                 name="flexRadioDefault" 
-                                                id="flexRadioDefault2" 
-                                                checked
+                                                id="flexRadioDefault2"                                          
                                             />
                                             <label 
                                                 className="form-check-label" 
@@ -99,7 +170,7 @@ function Home (){
                                         <button 
                                             type="button" 
                                             className="btn btn-dark" 
-                                             
+                                            onClick={(e)=>{isLegendary(e)}}
                                         >Go</button>
                                     </div>
                                 </form>
@@ -108,7 +179,7 @@ function Home (){
                             </div>
                             <div className="filterTwo">
                                 <div className="allContainer">
-                                    <button className="btn btn-primary">ALL</button>
+                                    <button onClick={()=>{getAll()}} className="btn btn-primary">ALL</button>
                                 </div>
 
                                 <div className="dropdownContainer">
@@ -126,13 +197,28 @@ function Home (){
                                             </button>
                                             
                                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a className="dropdown-item" href="#">Generation 1</a>
-                                                <a className="dropdown-item" href="#">Generation 2</a>
-                                                <a className="dropdown-item" href="#">Generation 3</a>
-                                                <a className="dropdown-item" href="#">Generation 4</a>
-                                                <a className="dropdown-item" href="#">Generation 5</a>
-                                                <a className="dropdown-item" href="#">Generation 6</a>
-                                                <a className="dropdown-item" href="#">Generation 7</a>
+                                                <DropdownItem text={"Generation 1"} 
+                                                    getFilter={()=>{getFiltered("generation/1")}}
+                                                />
+
+                                                <DropdownItem text={"Generation 2"} 
+                                                    getFilter={()=>{getFiltered("generation/2")}}
+                                                />
+                                                <DropdownItem text={"Generation 3"} 
+                                                    getFilter={()=>{getFiltered("generation/3")}}
+                                                />
+                                                <DropdownItem text={"Generation 4"} 
+                                                    getFilter={()=>{getFiltered("generation/4")}}
+                                                />
+                                                <DropdownItem text={"Generation 5"} 
+                                                    getFilter={()=>{getFiltered("generation/5")}}
+                                                />
+                                                <DropdownItem text={"Generation 6"} 
+                                                    getFilter={()=>{getFiltered("generation/6")}}
+                                                />
+                                                <DropdownItem text={"Generation 7"} 
+                                                    getFilter={()=>{getFiltered("generation/7")}}
+                                                />
                                             </div>
                                         </div>
                                         <div className="dropdown">
@@ -148,11 +234,26 @@ function Home (){
                                             </button>
                                             
                                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a className="dropdown-item" href="#">Stage 1</a>
-                                                <a className="dropdown-item" href="#">Stage 2</a>
-                                                <a className="dropdown-item" href="#">Stage 3</a>
-                                                <a className="dropdown-item" href="#">Lower</a>
-                                                <a className="dropdown-item" href="#">Evolved</a>
+                                                <DropdownItem text={"Stage 1"} 
+                                                    getFilter={()=>{getFiltered("evolution/1")}} 
+                                                />
+
+                                                <DropdownItem text={"Stage 2"} 
+                                                    getFilter={()=>{getFiltered("evolution/2")}}
+                                                />
+
+                                                <DropdownItem text={"Stage 3"} 
+                                                    getFilter={()=>{getFiltered("evolution/3")}}
+                                                />
+
+                                                <DropdownItem text={"Lower"} 
+                                                    getFilter={()=>{getFiltered("evolution/Lower")}}
+                                                />
+
+                                                <DropdownItem text={"Evolved"} 
+                                                    getFilter={()=>{getFiltered("evolution/Evolved")}}
+                                                />
+
                                             </div>
                                         </div>
                                     </div>
@@ -165,29 +266,19 @@ function Home (){
                                                 data-toggle="dropdown" 
                                                 aria-haspopup="true" 
                                                 aria-expanded="false"
-                                            >
-                                                Type1
+                                            > {settype}
                                             </button>
                                         
                                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a className="dropdown-item" href="#">Bug</a>
-                                                <a className="dropdown-item" href="#">Dark</a>
-                                                <a className="dropdown-item" href="#">Dragon</a>
-                                                <a className="dropdown-item" href="#">Eletric</a>
-                                                <a className="dropdown-item" href="#">Fairy</a>
-                                                <a className="dropdown-item" href="#">Fighting</a>
-                                                <a className="dropdown-item" href="#">Fire</a>
-                                                <a className="dropdown-item" href="#">Flying</a>
-                                                <a className="dropdown-item" href="#">Ghost</a>
-                                                <a className="dropdown-item" href="#">Grass</a>
-                                                <a className="dropdown-item" href="#">Ground</a>
-                                                <a className="dropdown-item" href="#">Ice</a>
-                                                <a className="dropdown-item" href="#">Normal</a>
-                                                <a className="dropdown-item" href="#">Poison</a>
-                                                <a className="dropdown-item" href="#">Psychic</a>
-                                                <a className="dropdown-item" href="#">Rock</a>
-                                                <a className="dropdown-item" href="#">Steel</a>
-                                                <a className="dropdown-item" href="#">Water</a>
+                                                {typeDropdown.map((item)=>{
+                                                    return(
+                                                    <DropdownItem 
+                                                        text={item} 
+                                                        getFilter={()=> {
+                                                            getType(`${item}`.toLowerCase())
+                                                        }} 
+                                                    />)
+                                                })}
                                             </div>
                                         </div>
                                         <div className="dropdown ">
@@ -198,38 +289,33 @@ function Home (){
                                                 data-toggle="dropdown" 
                                                 aria-haspopup="true" 
                                                 aria-expanded="false"
-                                            >
-                                                Type2
+                                            > {settype2}
                                             </button>
                                                 
                                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a className="dropdown-item" href="#">None</a>
-                                                <a className="dropdown-item" href="#">Bug</a>
-                                                <a className="dropdown-item" href="#">Dark</a>
-                                                <a className="dropdown-item" href="#">Dragon</a>
-                                                <a className="dropdown-item" href="#">Eletric</a>
-                                                <a className="dropdown-item" href="#">Fairy</a>
-                                                <a className="dropdown-item" href="#">Fighting</a>
-                                                <a className="dropdown-item" href="#">Fire</a>
-                                                <a className="dropdown-item" href="#">Flying</a>
-                                                <a className="dropdown-item" href="#">Ghost</a>
-                                                <a className="dropdown-item" href="#">Grass</a>
-                                                <a className="dropdown-item" href="#">Ground</a>
-                                                <a className="dropdown-item" href="#">Ice</a>
-                                                <a className="dropdown-item" href="#">Normal</a>
-                                                <a className="dropdown-item" href="#">Poison</a>
-                                                <a className="dropdown-item" href="#">Psychic</a>
-                                                <a className="dropdown-item" href="#">Rock</a>
-                                                <a className="dropdown-item" href="#">Steel</a>
-                                                <a className="dropdown-item" href="#">Water</a>
+                                                    <DropdownItem 
+                                                        text={"None"}
+                                                        getFilter={(e)=> {
+                                                            getType(`${"None"}`.toLowerCase(), "2")
+                                                        }} 
+                                                        />
+                                                {typeDropdown.map((item)=>{
+                                                     return(
+                                                     <DropdownItem 
+                                                        text={item}
+                                                        getFilter={()=> {
+                                                            getType(`${item}`.toLowerCase(), "2")
+                                                        }} 
+                                                    />)
+                                                })}
                                             </div>
                                         </div>
                                 </div>
                                     
-                                </div>
+                                </div> 
 
                                 <div className="goContainer">
-                                    <button className="btn btn-dark">GO</button>
+                                    <button className="btn btn-dark" onClick={()=>{getType("GO")}} >GO for Types</button>
                                 </div>
 
                             </div>

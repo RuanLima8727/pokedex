@@ -7,7 +7,7 @@ import fire from '../../assets/images/fireType.png'
 import dark from '../../assets/images/darkType.png'
 import bug from '../../assets/images/bugType.png'
 import dragon from '../../assets/images/dragonType.png'
-import eletric from '../../assets/images/eletricType.png'
+import electric from '../../assets/images/electricType.png'
 import fairy from '../../assets/images/fairyType.png'
 import fighting from '../../assets/images/fightingType.png'
 import flying from '../../assets/images/flyingType.png'
@@ -23,29 +23,41 @@ import poison from '../../assets/images/poisonType.png'
 import none from '../../assets/images/noneType.png'
 
 function PokemonCardContainer (props) {
-
-    // Eu sei que é possível deixar isso tudo mt mais otimizado, mas tive pouco tempo e fiz tudo correndo
-    //Pensando em entregar funcionando e refatorar depois
     
     function chooseImgType1(){
-       if (props.Type1 == 'fire')return(fire)
-       if (props.Type1 == 'grass')return(grass)
-       if (props.Type1 == 'dark')return(dark)
-       if (props.Type1 == 'bug')return(bug)
-       if (props.Type1 == 'dragon')return(dragon)
-       if (props.Type1 == 'eletric')return(eletric)
-       if (props.Type1 == 'fairy')return(fairy)
-       if (props.Type1 == 'fighting')return(fighting)
-       if (props.Type1 == 'flying')return(flying)
-       if (props.Type1 == 'ground')return(ground)
-       if (props.Type1 == 'ice')return(ice)
-       if (props.Type1 == 'normal')return(normal)
-       if (props.Type1 == 'psychic')return(psychic)
-       if (props.Type1 == 'rock')return(rock)
-       if (props.Type1 == 'steel')return(steel)
-       if (props.Type1 == 'water')return(water)
-       if (props.Type1 == 'poison')return(poison)
-       if (props.Type1 == 'ghost')return(ghost)
+
+        
+    // var typeArray = ["Bug","Dark","Dragon","Electric","Fairy","Fighting","Fire","Flying",
+    // "Ghost","Grass","Ground","Ice","Normal","Poison","Psychic","Rock",
+    // "Steel","Water"]
+
+
+    //     for (var i=0;i<18;i++){
+    //         if (props.Type1 == typeArray[i])return(typeArray[i])
+    //         console.log(typeArray[i])
+    //     }
+
+
+
+
+        if (props.Type1 == 'fire')return(fire)
+        if (props.Type1 == 'grass')return(grass)
+        if (props.Type1 == 'dark')return(dark)
+        if (props.Type1 == 'bug')return(bug)
+        if (props.Type1 == 'dragon')return(dragon)
+        if (props.Type1 == 'electric')return(electric)
+        if (props.Type1 == 'fairy')return(fairy)
+        if (props.Type1 == 'fighting')return(fighting)
+        if (props.Type1 == 'flying')return(flying)
+        if (props.Type1 == 'ground')return(ground)
+        if (props.Type1 == 'ice')return(ice)
+        if (props.Type1 == 'normal')return(normal)
+        if (props.Type1 == 'psychic')return(psychic)
+        if (props.Type1 == 'rock')return(rock)
+        if (props.Type1 == 'steel')return(steel)
+        if (props.Type1 == 'water')return(water)
+        if (props.Type1 == 'poison')return(poison)
+        if (props.Type1 == 'ghost')return(ghost)
     }
 
     function chooseImgType2(){
@@ -54,7 +66,7 @@ function PokemonCardContainer (props) {
         if (props.Type2 == 'dark')return(dark)
         if (props.Type2 == 'bug')return(bug)
         if (props.Type2 == 'dragon')return(dragon)
-        if (props.Type2 == 'eletric')return(eletric)
+        if (props.Type2 == 'electric')return(electric)
         if (props.Type2 == 'fairy')return(fairy)
         if (props.Type2 == 'fighting')return(fighting)
         if (props.Type2 == 'flying')return(flying)

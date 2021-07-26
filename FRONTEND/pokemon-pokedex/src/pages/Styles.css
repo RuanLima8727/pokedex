@@ -3,7 +3,7 @@
     height : 108vh ; 
     background-color: #ebebeb;
   
-}
+} 
 .section-1 .box { 
     max-width : 1400px;
     margin : 0 auto;
@@ -148,12 +148,14 @@
     
 }
 
+
 .section-1 .box main section:nth-child(2) .filterContainer .filterThree{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 30%;
     height: 100%;
+    opacity: 20%;
     
     border-radius: 40px;
     padding: 6%  0px ;
@@ -164,7 +166,7 @@
 .section-2 {
     width : 100% ; 
     padding-bottom: 64px;
-    background-color: #e7afaf;
+    background-color: #ebebeb;
   
 }
 .section-2 .box { 
@@ -181,6 +183,7 @@
     display: flex;
     width: 1200px;
     flex-wrap: wrap;
+    justify-content: space-between;
     
 }
 
