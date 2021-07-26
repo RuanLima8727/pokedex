@@ -1,7 +1,7 @@
 # pokedex
 Aplicação web de uma pokedex puxando os dados do MongoDB com node e mostrando com o React.js
 
-Tecnologias Usadas:
+Tecnologias Usadas: <br/>
 MongoDB - React - Node - Bootstrap - Insomnia - Figma
 
 Iniciar servidor Front-End <br/>
@@ -22,6 +22,4 @@ Pacotes usados no Node.js <br/>
 Link para Protótipo Figma
 https://www.figma.com/file/ns4uSgoonz0xOgHya5GzeL/Pokedex?node-id=0%3A1 <br/> 
 
-<div width="400px">
-![image](https://user-images.githubusercontent.com/69440448/126917666-bc98a693-2743-4440-a116-4d59ab9d8d36.png)
-</div>
+![image](https://user-images.githubusercontent.com/69440448/126917744-f6a8bf30-8a1e-4d34-92f0-8c2ffabc46e7.png)
