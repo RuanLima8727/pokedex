@@ -1,5 +1,5 @@
 # pokedex
-Aplicação web de uma pokedex puxando os dados do MongoDB com node e mostrando com o React.js
+Aplicação web de uma pokedex puxando os dados do MongoDB com node e mostrando com o React.js!!!
 
 Tecnologias Usadas: <br/>
 MongoDB - React - Node - Bootstrap - Insomnia - Figma
